@@ -1,0 +1,5 @@
+#!/bin/sh
+choice="$(fd . --base-directory $MUSIC_DIR -t directory | fzf)"
+if [[ $choice ]] then
+    fd "\.mp3|\.flac|.\wav" $MUSIC_DIR/$choice -t file | sed "s/^/\"/;s/$/\"/" | shuf > $INT/Music.m3u
+fi
