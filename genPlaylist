@@ -2,7 +2,7 @@
 choices="New\nShuffle"
 choice=$(echo $choices | fzf)
 case $choice in
-  New) fd "\.mp3|\.flac|.\wav" ${MUSIC_DIR} -t file --exec-batch ls -t | sed "s/^/\"/;s/$/\"/" > ${INT}/Music.m3u;; 
-  Shuffled) fd "\.mp3|\.flac|.\wav" ${MUSIC_DIR} -t file | sed "s/^/\"/;s/$/\"/" | shuf > ${INT}/Music.m3u;;
+  New) fd "\.mp3|\.flac|.\wav" ${MUSIC_DIR} -t file --exec-batch ls -t > ${INT}/Music.m3u;; 
+  Shuffled) fd "\.mp3|\.flac|.\wav" ${MUSIC_DIR} -t file | shuf > ${INT}/Music.m3u;;
 esac 
 
